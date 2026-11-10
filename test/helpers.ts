@@ -39,6 +39,8 @@ export function apiOrder(over: Partial<Record<string, unknown>> = {}) {
     id: `o_${seq}`,
     customerId: "c_1",
     amount: 1000,
+    discountPercent: 0,
+    amountPaid: over.amount ?? 1000,
     status: "paid",
     createdAt: "2026-02-10T12:00:00.000Z",
     updatedAt: "2026-02-10T12:00:00.000Z",

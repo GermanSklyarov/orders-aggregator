@@ -24,6 +24,13 @@ describe("tzOffsetMinutes", () => {
     expect(tzOffsetMinutes("Asia/Novosibirsk", at)).toBe(420);
     expect(tzOffsetMinutes("America/New_York", at)).toBe(-300);
   });
+
+  it("Berlin: весенний и осенний переходы в момент заказа", () => {
+    expect(tzOffsetMinutes("Europe/Berlin", new Date("2026-03-29T00:59:59.999Z"))).toBe(60);
+    expect(tzOffsetMinutes("Europe/Berlin", new Date("2026-03-29T01:00:00Z"))).toBe(120);
+    expect(tzOffsetMinutes("Europe/Berlin", new Date("2026-10-25T00:59:59.999Z"))).toBe(120);
+    expect(tzOffsetMinutes("Europe/Berlin", new Date("2026-10-25T01:00:00Z"))).toBe(60);
+  });
 });
 
 describe("даты", () => {
